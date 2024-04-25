@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk1j86hagn3ia"]
+
+[ext_resource type="Script" path="res://scripts/Games/Checkers/CheckersGame.cs" id="1_p21iq"]
+[ext_resource type="PackedScene" uid="uid://dbraivj5jjkij" path="res://components/checkersBoard.tscn" id="1_w8bri"]
+[ext_resource type="PackedScene" uid="uid://ctti0g2tcdwnq" path="res://ui/scoreboard.tscn" id="3_ftfa5"]
+[ext_resource type="Script" path="res://scripts/Games/Checkers/CheckersUI.cs" id="3_k5ige"]
+[ext_resource type="Texture2D" uid="uid://cmb5bwk3m0c4f" path="res://textures/main_background.jpg" id="4_hxrk8"]
+
+[node name="Checkers" type="Node2D" node_paths=PackedStringArray("Board", "WhiteScoreboard", "BlackScoreboard")]
+script = ExtResource("1_p21iq")
+Board = NodePath("CanvasLayer/HBoxContainer/CenterContainer/Control/Board")
+WhiteScoreboard = NodePath("CanvasLayer/HBoxContainer/VBoxContainer/WhiteScore")
+BlackScoreboard = NodePath("CanvasLayer/HBoxContainer/VBoxContainer/BlackScore")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("ResetButton", "UndoButton", "ExitButton")]
+layer = -1
+script = ExtResource("3_k5ige")
+ResetButton = NodePath("HBoxContainer/VBoxContainer/Reset")
+UndoButton = NodePath("HBoxContainer/VBoxContainer/Undo")
+ExitButton = NodePath("HBoxContainer/VBoxContainer/Exit")
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_hxrk8")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="WhiteScore" parent="CanvasLayer/HBoxContainer/VBoxContainer" instance=ExtResource("3_ftfa5")]
+layout_mode = 2
+
+[node name="BlackScore" parent="CanvasLayer/HBoxContainer/VBoxContainer" instance=ExtResource("3_ftfa5")]
+layout_mode = 2
+
+[node name="Reset" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="Undo" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Undo"
+
+[node name="Exit" type="Button" parent="CanvasLayer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit
+"
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Board" parent="CanvasLayer/HBoxContainer/CenterContainer/Control" instance=ExtResource("1_w8bri")]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbraivj5jjkij"]
+
+[ext_resource type="Script" path="res://scripts/Games/Checkers/CheckersBoard.cs" id="1_j34w3"]
+[ext_resource type="PackedScene" uid="uid://cdsjgwp0grvkq" path="res://components/checkersBoardTile.tscn" id="2_3ufiq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfh0q"]
+size = Vector2(512, 512)
+
+[node name="Board" type="Area2D" node_paths=PackedStringArray("collider")]
+script = ExtResource("1_j34w3")
+boardTileScene = ExtResource("2_3ufiq")
+collider = NodePath("Bounds")
+
+[node name="Bounds" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wfh0q")

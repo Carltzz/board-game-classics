@@ -1,0 +1,122 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4wads7jnm17t"]
+
+[ext_resource type="Texture2D" uid="uid://cmb5bwk3m0c4f" path="res://textures/main_background.jpg" id="1_5kck0"]
+[ext_resource type="Script" path="res://scripts/UI/MainMenu.cs" id="1_tva8p"]
+
+[node name="MenuInterface" type="Control" node_paths=PackedStringArray("PlayButton", "OptionsButton", "AboutButton", "ExitButton", "PlayCheckersButton", "SelectGameBackButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tva8p")
+PlayButton = NodePath("MainMenu/MarginContainer/Menu/Play")
+OptionsButton = NodePath("MainMenu/MarginContainer/Menu/Options")
+AboutButton = NodePath("MainMenu/MarginContainer/Menu/About")
+ExitButton = NodePath("MainMenu/MarginContainer/Menu/Exit")
+PlayCheckersButton = NodePath("SelectGameMode/CenterContainer/VBoxContainer/Checkers")
+SelectGameBackButton = NodePath("SelectGameMode/CenterContainer/VBoxContainer/Back")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 2
+texture = ExtResource("1_5kck0")
+expand_mode = 2
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="CenterContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.0
+offset_top = -81.5
+offset_right = 93.0
+offset_bottom = 81.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="MainMenu/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MainMenu/MarginContainer/Menu"]
+layout_mode = 2
+text = "BOARD GAME CLASSICS!"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="MainMenu/MarginContainer/Menu"]
+layout_mode = 2
+text = "Play"
+
+[node name="About" type="Button" parent="MainMenu/MarginContainer/Menu"]
+layout_mode = 2
+text = "About"
+
+[node name="Options" type="Button" parent="MainMenu/MarginContainer/Menu"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="Exit" type="Button" parent="MainMenu/MarginContainer/Menu"]
+layout_mode = 2
+text = "Exit"
+
+[node name="SelectGameMode" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="SelectGameMode"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -11.5
+offset_right = 78.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectGameMode/CenterContainer"]
+layout_mode = 2
+
+[node name="SelectGameLabel" type="Label" parent="SelectGameMode/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "SELECT GAME MODE
+"
+
+[node name="Checkers" type="Button" parent="SelectGameMode/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Checkers
+"
+
+[node name="Back" type="Button" parent="SelectGameMode/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back
+"

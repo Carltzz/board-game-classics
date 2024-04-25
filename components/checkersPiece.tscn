@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciynuf5ljc7j8"]
+
+[ext_resource type="Script" path="res://scripts/Games/Checkers/CheckersPiece.cs" id="1_1radh"]
+[ext_resource type="Texture2D" uid="uid://cjfuyosf3ekar" path="res://textures/white_king.png" id="2_yvmg3"]
+[ext_resource type="Texture2D" uid="uid://h72to3483ra7" path="res://textures/black_king.png" id="3_l1uaq"]
+[ext_resource type="Texture2D" uid="uid://bept0dohg5glg" path="res://textures/white_piece.png" id="4_ccoog"]
+[ext_resource type="Texture2D" uid="uid://y1dgg3am0o5m" path="res://textures/black_piece.png" id="5_8vm60"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ol7m8"]
+radius = 64.0
+
+[node name="Piece" type="Area2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_1radh")
+WhiteKingTexture = ExtResource("2_yvmg3")
+BlackKingTexture = ExtResource("3_l1uaq")
+PieceType = 1
+WhiteTexture = ExtResource("4_ccoog")
+BlackTexture = ExtResource("5_8vm60")
+sprite = NodePath("Sprite")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("4_ccoog")
+region_rect = Rect2(-63, -43, 251, 224)
+
+[node name="Bounds" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ol7m8")
