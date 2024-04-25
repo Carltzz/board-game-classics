@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdsjgwp0grvkq"]
+
+[ext_resource type="Script" path="res://scripts/Games/Checkers/CheckersBoardTile.cs" id="1_7wue1"]
+[ext_resource type="Texture2D" uid="uid://pq0no6jda5je" path="res://textures/light_tile.png" id="2_e7nkv"]
+[ext_resource type="Texture2D" uid="uid://djdmkbvqp76w5" path="res://textures/dark_tile.png" id="3_1i0n0"]
+[ext_resource type="PackedScene" uid="uid://ciynuf5ljc7j8" path="res://components/checkersPiece.tscn" id="4_6lpye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hm82"]
+size = Vector2(156, 156)
+
+[node name="BoardTile" type="Area2D" node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_7wue1")
+LightTexture = ExtResource("2_e7nkv")
+DarkTexture = ExtResource("3_1i0n0")
+sprite = NodePath("Sprite")
+boardPieceScene = ExtResource("4_6lpye")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_e7nkv")
+
+[node name="Bounds" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0hm82")
